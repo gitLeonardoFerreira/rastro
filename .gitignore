@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.venv/
+.env
+__pycache__/
+.pytest_cache/
+*.pyc
+.runtime/
+*.log
+*.tsbuildinfo
+
+# Ferramentas locais e configuração específica da máquina
+.openai/
+.codex/
+.agents/
+docs/AMBIENTE_LOCAL.md
+.DS_Store

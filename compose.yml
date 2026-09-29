@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:18.6
+    environment:
+      POSTGRES_DB: rastro
+      POSTGRES_USER: rastro_app
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Defina POSTGRES_PASSWORD no ambiente}
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - rastro-data:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U rastro_app -d rastro']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  rastro-data:
